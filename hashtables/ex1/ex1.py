@@ -23,7 +23,7 @@ def get_indices_of_item_weights(weights, length, limit):
         # ht, key
         diff = hash_table_retrieve(ht, limit - weights[j])
 
-        if value is not None:
+        if diff is not None:
             return (diff, j)
 
     return None
