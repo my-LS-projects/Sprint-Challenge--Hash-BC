@@ -19,16 +19,16 @@ def proof_of_work(last_proof):
     - p is the previous proof, and p' is the new proof
     - Use the same method to generate SHA-256 hashes as the examples in class
     """
-    prev_proof = f"last_proof"
+    prev_proof = f"{last_proof}"
     prev_hash = hashlib.sha256(prev_proof.encode()).hexdigest()
 
     start = timer()
 
     print("Searching for next proof")
 
-    proof = 398149728387897897
+    proof = 3981497
     while valid_proof(prev_hash, proof) is False:
-        proof += 125938
+        proof += random.randint(125938, 1892389)
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
